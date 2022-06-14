@@ -3,13 +3,13 @@ import { CreateRegistDto } from './dto/create-regist.dto';
 import { UpdateRegistDto } from './dto/update-regist.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { regist } from './entities/regist.entity';
+import { course } from './entities/regist.entity';
 
 @Injectable()
 export class RegistService {
   constructor(
-    @InjectRepository(regist)
-    private registRepository: Repository<regist>,
+    @InjectRepository(course)
+    private registRepository: Repository<course>,
   ) {}
   create(createRegistDto: CreateRegistDto) {
     return this.registRepository.save(createRegistDto);
@@ -26,14 +26,14 @@ export class RegistService {
   update(id: number, updateRegistDto: UpdateRegistDto) {
     return this.registRepository.update(+id, updateRegistDto);
   }
-  Search_term(term: string): Promise<regist[]> {
+  Search_term(term: string): Promise<course[]> {
     return this.registRepository.find({
       where: {
         term,
       },
     });
   }
-  Search_section(lecturer: string): Promise<regist[]> {
+  Search_section(lecturer: string): Promise<course[]> {
     return this.registRepository.find({
       where: {
         lecturer,

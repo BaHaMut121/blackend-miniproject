@@ -1,28 +1,28 @@
 import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
-export class course {
+export class registration {
   @PrimaryGeneratedColumn()
-  course_id: number;
+  regist_id: number;
 
   @Column()
-  coursetext_id: string;
+  subject_id: string;
 
   @Column()
-  course_Name: string;
+  subject: string;
 
   @Column()
-  credit: string;
+  Grade: string;
 
   @Column()
-  section: string;
+  regis_sec: string;
 
   @Column()
-  class_date: string;
+  regis_date: string;
 
   @Column()
-  lecturer: string;
+  regist_lecturer: string;
 
   @Column()
-  year: string;
+  semesterm: string;
 }
